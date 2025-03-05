@@ -6,6 +6,8 @@ import org.example.skiapp.enums.TypeCourse;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 
 @Entity
 
@@ -22,7 +24,8 @@ public class Course {
 
     @Enumerated(EnumType.STRING)
     private TypeCourse typeCourse;
-
+    @OneToMany(mappedBy = "course")
+    private Set<Registration> registrations;
     @ManyToOne
     private Instructor instructor;
 

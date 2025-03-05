@@ -1,6 +1,6 @@
 package org.example.skiapp.entities;
 
-
+import java.util.Set;
 import org.example.skiapp.enums.Color;
 
 import jakarta.persistence.*;
@@ -21,7 +21,8 @@ public class Piste {
 
     public Piste() {
     }
-
+    @ManyToMany(mappedBy = "Pistes")
+    Set<Skier> skiers;
     // Getters and setters
     public Long getNumPiste() {
         return numPiste;

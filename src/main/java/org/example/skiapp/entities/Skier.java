@@ -5,6 +5,7 @@ import org.example.skiapp.enums.TypeSubscription;
 
 import jakarta.persistence.*;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 
@@ -22,7 +23,12 @@ public class Skier {
 
     @Enumerated(EnumType.STRING)
     private TypeSubscription typeSubscription;
-
+    @OneToMany(mappedBy = "skier")
+    Set<Registration> registrations;
+    @ManyToMany
+    Set<Piste>Pistes;
+    @OneToMany(mappedBy = "skier")
+    Set<Subscription> subscriptions;
     public Skier() {
     }
 
